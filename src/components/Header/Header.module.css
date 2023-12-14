@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav ul li {
+  font-weight: 600;
+  font-size: 1rem;
+}
