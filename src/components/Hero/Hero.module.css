@@ -1,0 +1,36 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 3rem;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-text p {
+  color: rgba(0, 0, 0, .65);
+  line-height: 1.5;
+}
+
+.hero-text button {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  padding: .7rem 1.3rem;
+  align-self: flex-start;
+  font-weight: 700;
+  cursor: pointer;
+}
