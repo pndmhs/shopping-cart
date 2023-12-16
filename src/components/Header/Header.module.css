@@ -15,6 +15,10 @@
   -webkit-text-stroke-color: #000;
 }
 
+.nav {
+  display: flex;
+}
+
 .nav ul {
   display: flex;
   align-items: center;
@@ -24,4 +28,56 @@
 .nav ul li {
   font-weight: 600;
   font-size: 1rem;
+}
+
+.search-bar {
+  width: 480px;
+  border: 1px solid #b1b1b1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar:focus {
+  outline: #000;
+}
+
+.search-bar input {
+  font-size: inherit;
+  font-style: inherit;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar:focus-within {
+  outline: 1px solid #000000;
+}
+
+.lg-hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .sm-show {
+    display: block;
+  }
+
+  .sm-hidden {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .nav ul {
+    gap: 16px;
+  }
 }
