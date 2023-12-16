@@ -10,7 +10,7 @@ const Hero = () => {
         <button>SHOP NOW</button>
       </div>
       <div className={styles['hero-image']}>
-        <HeroImage />
+        <HeroImage className={styles['hero-svg']}/>
       </div>
     </div>
   )
