@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <h1 className={styles.logo}>SIMPLE <span className={styles[`text-stroke`]}>SHOP</span></h1>
-      <div className={styles['sm-hidden']}>
+      <div className={`${styles['search-bar']} ${styles['sm-hidden']}`}>
         <HiOutlineSearch className={styles['search-icon']}/>
         <input type='text' name='search' placeholder='Search'/>
       </div>
