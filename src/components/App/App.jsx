@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import styles from './App.module.css'
 import Header from '../Header/Header'
 import Hero from '../Hero/Hero'
-import styles from './App.module.css'
+import Shop from '../Shop/Shop'
 
 const useFetch = (url) => {
   const [data, setData] = useState(null)
@@ -24,7 +25,8 @@ const App = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <Hero />
+      {/* <Hero /> */}
+      <Shop />
     </div>
   )
 }

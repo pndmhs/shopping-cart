@@ -1,0 +1,19 @@
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product h3 {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.product-img {
+  width: 250px;
+  height: 200px;
+  background: #d3d3d3;
+}
+
+.product-price {
+  font-weight: 700;
+}
