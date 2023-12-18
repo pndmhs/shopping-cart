@@ -22,6 +22,14 @@ const useFetch = (url) => {
 const Shop = () => {
   const { data, err, isLoading } = useFetch('https://fakestoreapi.com/products')
 
+  const [activeCategory, setActiveCategory] = useState(null)
+
+  const categories = ["Men's Clothing", "Women's Clothing", "Electronics", "Jewelery"]
+
+  const handleCategory = (index) => {
+    setActiveCategory(index)
+  }
+
   if (isLoading) {
     return (
       <div className={styles.loading}>
@@ -36,14 +44,19 @@ const Shop = () => {
       <div className={styles['category-container']}>
         <h2>Categories</h2>
         <ul>
-          <li>Men's Clothing</li>
-          <li>Women's Clothing</li>
-          <li>Electronics</li>
-          <li>Jewelery</li>
+          {categories.map((category, index) => (
+            <li
+            key={index}
+            onClick={() => handleCategory(index)}
+            className={activeCategory === index ? styles.active : ''}
+            >
+              {category}
+            </li>
+          ))}
         </ul>
       </div>
       <div className={styles['product-container']}>
-        <span>1234 items</span>
+        <span>{data.length} items</span>
         <div className={styles['product-list']}>
           {data.map(product => <Product data={product} key={product.id}/>)}
         </div>

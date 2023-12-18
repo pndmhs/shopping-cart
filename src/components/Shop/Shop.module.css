@@ -49,6 +49,11 @@
   color: #000000;
 }
 
+.category-container ul li.active {
+  background-color: #000000;
+  color: #ffffff;
+}
+
 .product-container {
   display: flex;
   flex-direction: column;
