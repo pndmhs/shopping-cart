@@ -40,7 +40,7 @@ const Shop = () => {
 
   return (
     <div className={styles.shop}>
-      <h1>All Products</h1>
+      <h1>{activeCategory !== null ? categories[activeCategory] : 'All Products'}</h1>
       <div className={styles['category-container']}>
         <h2>Categories</h2>
         <ul>
