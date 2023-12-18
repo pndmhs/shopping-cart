@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   border-right: 1px solid #d3d3d3;
-  padding: 0 2rem 0 1rem;
+  padding: 0 1rem;
 }
 
 .category-container h2 {
@@ -38,6 +38,13 @@
 
 .category-container ul li {
   padding: .5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.category-container ul li:hover {
+  background-color: #e4e4e4;
+  color: #000000;
 }
 
 .product-container {
