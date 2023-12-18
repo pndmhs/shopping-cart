@@ -1,7 +1,19 @@
+import { useEffect } from 'react'
 import Product from '../Product/Product'
 import styles from './Shop.module.css'
+import ReactLoading from 'react-loading'
 
-const Shop = () => {
+const Shop = ({ useFetch }) => {
+  const { data, err, isLoading } = useFetch('https://fakestoreapi.com/products')
+
+  if (isLoading) {
+    return (
+      <div className={styles.loading}>
+        <ReactLoading type='spin' color='#000000' />
+      </div>
+    )
+  }
+
   return (
     <div className={styles.shop}>
       <h1>All Products</h1>
@@ -17,12 +29,7 @@ const Shop = () => {
       <div className={styles['product-container']}>
         <span>1234 items</span>
         <div className={styles['product-list']}>
-          <Product productName={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99}/>
-          <Product productName={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99}/>
-          <Product productName={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99}/>
-          <Product productName={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99}/>
-          <Product productName={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99}/>
-          <Product productName={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99}/>
+          {data.map(product => <Product data={product} key={product.id}/>)}
         </div>
       </div>
     </div>

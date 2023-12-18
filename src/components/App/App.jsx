@@ -26,7 +26,7 @@ const App = () => {
     <div className={styles.container}>
       <Header />
       {/* <Hero /> */}
-      <Shop />
+      <Shop useFetch={useFetch}/>
     </div>
   )
 }
