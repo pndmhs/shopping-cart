@@ -1,9 +1,25 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Product from '../Product/Product'
 import styles from './Shop.module.css'
 import ReactLoading from 'react-loading'
 
-const Shop = ({ useFetch }) => {
+const useFetch = (url) => {
+  const [data, setData] = useState(null)
+  const [err, setErr] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(url)
+    .then(response => response.json())
+    .then(data => setData(data))
+    .catch(err => setErr(err))
+    .finally(() => setLoading(false))
+  }, [])
+
+  return { data, err, isLoading }
+}
+
+const Shop = () => {
   const { data, err, isLoading } = useFetch('https://fakestoreapi.com/products')
 
   if (isLoading) {
