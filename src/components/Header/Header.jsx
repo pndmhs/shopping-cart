@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './Header.module.css'
 import { MdOutlineShoppingBag } from "react-icons/md"
 import { HiOutlineSearch, HiOutlineMenu } from "react-icons/hi";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false)
@@ -21,8 +22,12 @@ const Header = () => {
       </div>
       <nav className={styles.nav}>
         <ul>
-          <li className={styles['sm-hidden']}>Home</li>
-          <li className={styles['sm-hidden']}>Shop</li>
+          <li className={styles['sm-hidden']}>
+            <Link to='/'>Home</Link>
+          </li>
+          <li className={styles['sm-hidden']}>
+            <Link to='shop'>Shop</Link>
+          </li>
           <li><MdOutlineShoppingBag size={24} /></li>
           <li className={`${styles['sm-show']} ${styles['lg-hidden']}`} onClick={() => setMenuToggle(true)}><HiOutlineMenu size={24} /></li>
         </ul>
@@ -44,8 +49,8 @@ const MobileNav = ({ handleClose }) => {
           <HiOutlineSearch className={styles['search-icon']}/>
         </div>
         <ul>
-          <li>Home</li>
-          <li>Shop</li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='shop'>Shop</Link></li>
         </ul>
       </div>
     </div>
