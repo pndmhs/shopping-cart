@@ -24,6 +24,14 @@ img {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
