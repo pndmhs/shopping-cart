@@ -10,10 +10,17 @@
 }
 
 .product-img {
+  display: flex;
   max-width: 250px;
   height: 200px;
-  background: #d3d3d3;
   margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.product-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .product-price {
