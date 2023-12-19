@@ -20,9 +20,13 @@ const Shop = () => {
 
   const { data, err, isLoading } = useFetch(url)
 
-  const [activeCategory, setActiveCategory] = useState(null)
+  const [activeCategory, setActiveCategory] = useState(0)
 
   const categories = [
+    {
+      name: "All Products",
+      fetchUrl: "https://fakestoreapi.com/products"
+    },
     {
       name: "Men's Clothing",
       fetchUrl: "https://fakestoreapi.com/products/category/men's%20clothing"
