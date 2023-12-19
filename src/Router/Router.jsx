@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from '../App/App'
-import Hero from '../Hero/Hero'
-import Shop from '../Shop/Shop'
+import App from '../components/App/App'
+import Hero from '../components/Hero/Hero'
+import Shop from '../components/Shop/Shop'
 
 const Router = () => {
   const router = createBrowserRouter([
