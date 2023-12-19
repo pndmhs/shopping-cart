@@ -50,6 +50,10 @@ const Shop = () => {
     setUrl(fetchUrl)
   }
 
+  if (err) {
+    return <h1>Error: {err}</h1>
+  }
+
   return (
     <div className={styles.shop}>
       <h1>{activeCategory !== null ? categories[activeCategory].name : 'All Products'}</h1>
