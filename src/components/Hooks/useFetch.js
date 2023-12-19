@@ -11,7 +11,7 @@ const useFetch = (url) => {
     fetch(url)
     .then(response => response.json())
     .then(data => setData(data))
-    .catch(err => setErr(err))
+    .catch(err => setErr(err.message))
     .finally(() => setLoading(false))
   }, [url])
 
