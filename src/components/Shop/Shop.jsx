@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Product from '../Product/Product'
 import styles from './Shop.module.css'
-import ReactLoading from 'react-loading'
+import Loading from '../Loading/Loading'
 import useFetch from '../Hooks/useFetch'
 
 const ProductList = ({ data }) => {
@@ -63,13 +63,7 @@ const Shop = () => {
           ))}
         </ul>
       </div>
-      {
-        isLoading ? 
-        <div className={styles.loading}>
-          <ReactLoading type='spin' color='#000000' />
-        </div>
-        : <ProductList data={data} />
-      }
+      { isLoading ? <Loading /> : <ProductList data={data} /> }
       
     </div>
   )

@@ -69,14 +69,6 @@
   width: 100%;
 }
 
-.loading {
-  flex-grow: 1;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 @media only screen and (max-width: 768px) {
   .shop {
     grid-template-columns: 1fr;
