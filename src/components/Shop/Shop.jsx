@@ -3,6 +3,7 @@ import Product from '../Product/Product'
 import styles from './Shop.module.css'
 import Loading from '../Loading/Loading'
 import useFetch from '../Hooks/useFetch'
+import Error from '../Error/Error'
 
 const ProductList = ({ data }) => {
   return (
@@ -51,7 +52,7 @@ const Shop = () => {
   }
 
   if (err) {
-    return <h1>Error: {err}</h1>
+    return <Error message={err}/>
   }
 
   return (
