@@ -75,7 +75,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -83,6 +82,7 @@
     grid-template-columns: 1fr;
     padding: 0;
     gap: 1.25rem;
+    flex-grow: 0;
   }
 
   .shop h1 {
@@ -99,10 +99,6 @@
     margin-bottom: .5rem;
     font-size: 1.25rem;
     font-weight: 600;
-  }
-
-  .category-container ul {
-    gap: .5rem;
   }
 
   .product-list {
