@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Product from '../Product/Product'
 import styles from './Shop.module.css'
 import Loading from '../Loading/Loading'
-import useFetch from '../Hooks/useFetch'
+import useFetch from '../../Hooks/useFetch'
 import Error from '../Error/Error'
 
 const ProductList = ({ data }) => {
