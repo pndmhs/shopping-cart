@@ -49,8 +49,8 @@ const MobileNav = ({ handleClose }) => {
           <HiOutlineSearch className={styles['search-icon']}/>
         </div>
         <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='shop'>Shop</Link></li>
+          <li><Link to='/' onClick={(e) => handleClose(e)}>Home</Link></li>
+          <li><Link to='shop' onClick={(e) => handleClose(e)}>Shop</Link></li>
         </ul>
       </div>
     </div>
