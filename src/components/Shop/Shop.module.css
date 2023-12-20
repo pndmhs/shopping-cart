@@ -56,19 +56,6 @@
   color: #ffffff;
 }
 
-.product-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2.5rem;
-  width: 100%;
-}
-
 @media only screen and (max-width: 768px) {
   .shop {
     grid-template-columns: 1fr;
@@ -91,11 +78,6 @@
     margin-bottom: .5rem;
     font-size: 1.25rem;
     font-weight: 600;
-  }
-
-  .product-list {
-    grid-template-columns: repeat(2, auto);
-    gap: 1rem;
   }
 }
 

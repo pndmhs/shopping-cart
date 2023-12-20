@@ -1,26 +1,8 @@
 import { useState } from 'react'
-import Product from '../Product/Product'
+import ProductList from '../ProductList/ProductList'
 import styles from './Shop.module.css'
-import Loading from '../Loading/Loading'
-import useFetch from '../../Hooks/useFetch'
-import Error from '../Error/Error'
-
-const ProductList = ({ data }) => {
-  return (
-    <div className={styles['product-container']}>
-      <span>{data.length} items</span>
-      <div className={styles['product-list']}>
-        {data.map(product => <Product data={product} key={product.id}/>)}
-      </div>
-    </div>
-  )
-}
 
 const Shop = () => {
-  const [url, setUrl] = useState('https://fakestoreapi.com/products')
-
-  const { data, err, isLoading } = useFetch(url)
-
   const [activeCategory, setActiveCategory] = useState(0)
 
   const categories = [
@@ -46,13 +28,8 @@ const Shop = () => {
     }
   ]
 
-  const handleCategory = (index, fetchUrl) => {
+  const handleCategory = (index) => {
     setActiveCategory(index)
-    setUrl(fetchUrl)
-  }
-
-  if (err) {
-    return <Error message={err}/>
   }
 
   return (
@@ -64,7 +41,7 @@ const Shop = () => {
           {categories.map((category, index) => (
             <li
             key={index}
-            onClick={() => handleCategory(index, category.fetchUrl)}
+            onClick={() => handleCategory(index)}
             className={activeCategory === index ? styles.active : ''}
             >
               {category.name}
@@ -72,8 +49,7 @@ const Shop = () => {
           ))}
         </ul>
       </div>
-      { isLoading ? <Loading /> : <ProductList data={data} /> }
-      
+      <ProductList category={categories[activeCategory]}/>
     </div>
   )
 }
