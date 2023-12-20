@@ -34,7 +34,7 @@ const Shop = () => {
 
   return (
     <div className={styles.shop}>
-      <h1>{activeCategory !== null ? categories[activeCategory].name : 'All Products'}</h1>
+      <h1>{categories[activeCategory].name}</h1>
       <div className={styles['category-container']}>
         <h2>Categories</h2>
         <ul>
