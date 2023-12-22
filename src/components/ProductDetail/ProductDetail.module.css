@@ -1,0 +1,63 @@
+.product-detail {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-grow: 1;
+  max-width: 80rem;
+  align-self: center;
+  justify-content: center;
+}
+
+.product-img {
+  width: 50%;
+  height: 30rem;
+  background-color: #d3d3d3;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.product-info h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.product-desc {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, .6);
+  margin: 3rem 0;
+}
+
+.quantity input {
+  width: 2.5rem;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 5px;
+  margin-left: .5rem;
+  text-align: center;
+}
+
+.quantity input[type=number]::-webkit-outer-spin-button,
+.quantity input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none; 
+  margin: 0;
+}
+
+.add-btn {
+  margin-top: 1rem;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: #ffffff;
+  padding: .75rem 0;
+  border-radius: 32px;
+  font-weight: 700;
+}
