@@ -3,13 +3,21 @@ import styles from './Header.module.css'
 import { MdOutlineShoppingBag } from "react-icons/md"
 import { HiOutlineSearch, HiOutlineMenu } from "react-icons/hi";
 import { Link } from 'react-router-dom';
+import Cart from '../Cart/Cart';
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false)
+  const [cartView, setCartView] = useState(false)
 
   const handleClose = (e) => {
     if (e.currentTarget === e.target) {
       setMenuToggle(false)
+    }
+  }
+
+  const handleCloseCart = (e) => {
+    if (e.currentTarget === e.target) {
+      setCartView(false)
     }
   }
 
@@ -28,12 +36,14 @@ const Header = () => {
           <li className={styles['sm-hidden']}>
             <Link to='shop'>Shop</Link>
           </li>
-          <li><MdOutlineShoppingBag size={24} /></li>
+          <li><MdOutlineShoppingBag size={24} onClick={() => setCartView(true)} /></li>
           <li className={`${styles['sm-show']} ${styles['lg-hidden']}`} onClick={() => setMenuToggle(true)}><HiOutlineMenu size={24} /></li>
         </ul>
       </nav>
 
       {menuToggle && <MobileNav handleClose={handleClose} />}
+
+      {cartView && <Cart handleClose={handleCloseCart} />}
     </header>
   )
 }
