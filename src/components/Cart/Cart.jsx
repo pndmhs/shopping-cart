@@ -26,7 +26,8 @@ const CartItem = ({ name, price, }) => {
 
 const Cart = ({ handleClose }) => {
   return (
-    <div className={styles['cart-container']} onClick={(e) => handleClose(e)}>
+    <div className={styles['cart-container']}>
+      <div className={styles['cart-background']} onClick={() => handleClose()}></div>
       <div className={styles.cart}>
         <div className={styles['cart-header']}>
           <h1>Shopping Bag</h1>
