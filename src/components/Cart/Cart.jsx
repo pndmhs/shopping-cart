@@ -1,11 +1,25 @@
 import styles from './Cart.module.css'
+import { FaRegTrashCan } from "react-icons/fa6"
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 
 const CartItem = ({ name, price, }) => {
   return (
     <div className={styles['cart-item']}>
       <div className={styles['item-img']}></div>
       <h2>{name}</h2>
+      <div className={styles['delete-icon']}>
+        <FaRegTrashCan />
+      </div>
       <p className={styles['item-price']}>${price}</p>
+      <div className={styles.quantity}>
+        <div className={styles['quantity-icon']}>
+          <AiOutlineMinus size={12} />
+        </div>
+        <input type="number" name="Quantity" value={1}/>
+        <div className={styles['quantity-icon']}>
+          <AiOutlinePlus size={12} />
+        </div>
+      </div>
     </div>
   )
 }

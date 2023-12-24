@@ -13,7 +13,7 @@
 
 .cart {
   width: 28rem;
-  padding: 2rem;
+  padding: 1rem 2rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@
 
 .cart-item {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   grid-template-rows: repeat(2, auto);
 }
 
@@ -54,6 +54,37 @@
 .item-price {
   font-size: .85rem;
   align-self: end;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity input {
+  width: 1.5rem;
+  -moz-appearance: textfield;
+  text-align: center;
+}
+
+.quantity input[type=number]::-webkit-outer-spin-button,
+.quantity input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none; 
+  margin: 0;
+}
+
+.delete-icon {
+  justify-self: end;
+}
+
+.quantity-icon {
+  cursor: pointer;
+  padding: 0 3px;
+}
+
+.quantity-icon:hover {
+  background-color: #e2e2e2;
 }
 
 .total {
