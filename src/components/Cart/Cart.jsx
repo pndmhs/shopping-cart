@@ -2,10 +2,12 @@ import styles from './Cart.module.css'
 import { FaRegTrashCan } from "react-icons/fa6"
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai"
 
-const CartItem = ({ name, price, }) => {
+const CartItem = ({ name, price, imgSrc, quantity }) => {
   return (
     <div className={styles['cart-item']}>
-      <div className={styles['item-img']}></div>
+      <div className={styles['item-img']}>
+        <img src={imgSrc} alt={name} />
+      </div>
       <h2>{name}</h2>
       <div className={styles['delete-icon']}>
         <FaRegTrashCan />
@@ -15,7 +17,7 @@ const CartItem = ({ name, price, }) => {
         <div className={styles['quantity-icon']}>
           <AiOutlineMinus size={12} />
         </div>
-        <input type="number" name="Quantity" value={1}/>
+        <input type="number" name="Quantity" value={quantity}/>
         <div className={styles['quantity-icon']}>
           <AiOutlinePlus size={12} />
         </div>
@@ -24,7 +26,7 @@ const CartItem = ({ name, price, }) => {
   )
 }
 
-const Cart = ({ handleClose }) => {
+const Cart = ({ handleClose, cartItems }) => {
   return (
     <div className={styles['cart-container']}>
       <div className={styles['cart-background']} onClick={() => handleClose()}></div>
@@ -35,15 +37,24 @@ const Cart = ({ handleClose }) => {
             <AiOutlineClose size={24} />
           </div>
         </div>
-        <div className={styles['cart-list']}>
-          <CartItem name={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99} />
-          <CartItem name={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99} />
-        </div>
-        <div className={styles.total}>
-          <p>Total:</p>
-          <p>$199.99</p>
-        </div>
-        <button className={styles['checkout-btn']}>CHECKOUT</button>
+        {
+          cartItems.length === 0 ? <div>Nothing here</div>
+          : (
+            <>
+              <div className={styles['cart-list']}>
+                {
+                  cartItems.map((item) => <CartItem name={item.title} price={item.price} imgSrc={item.image} quantity={item.quantity} />)
+                }
+              </div>
+              <div className={styles.total}>
+                <p>Total:</p>
+                <p>$199.99</p>
+              </div>
+              <button className={styles['checkout-btn']}>CHECKOUT</button>
+            </>
+          )
+        }
+        
       </div>
     </div>
   )
