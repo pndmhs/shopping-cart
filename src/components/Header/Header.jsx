@@ -15,10 +15,8 @@ const Header = () => {
     }
   }
 
-  const handleCloseCart = (e) => {
-    if (e.currentTarget === e.target) {
-      setCartView(false)
-    }
+  const handleCloseCart = () => {
+    setCartView(false)
   }
 
   return (
