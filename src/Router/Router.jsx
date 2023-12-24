@@ -9,17 +9,24 @@ const Router = () => {
 
   const [productID, setProductID] = useState(null)
 
+  const [cartItems, setCartItems] = useState([])
+
   const handleProduct = (id) => {
     setProductID(id)
   }
+
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product])
+  }
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <App />,
+      element: <App cartItems={cartItems} />,
       children: [
         { path: '/', element: <Hero /> },
         { path: '/shop', element: <Shop setProductID={handleProduct}/>},
-        { path: '/shop/product', element: <ProductDetail productID={productID} />}
+        { path: '/shop/product', element: <ProductDetail productID={productID} addToCart={addToCart} />}
       ]
     },
   ])
