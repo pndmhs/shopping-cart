@@ -31,7 +31,7 @@ const Cart = ({ handleClose }) => {
       <div className={styles.cart}>
         <div className={styles['cart-header']}>
           <h1>Shopping Bag</h1>
-          <div className={styles['close-btn']}>
+          <div className={styles['close-btn']} onClick={() => handleClose()}>
             <AiOutlineClose size={24} />
           </div>
         </div>
