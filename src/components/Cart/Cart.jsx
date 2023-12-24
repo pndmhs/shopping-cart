@@ -1,6 +1,6 @@
 import styles from './Cart.module.css'
 import { FaRegTrashCan } from "react-icons/fa6"
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
+import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai"
 
 const CartItem = ({ name, price, }) => {
   return (
@@ -28,7 +28,12 @@ const Cart = ({ handleClose }) => {
   return (
     <div className={styles['cart-container']} onClick={(e) => handleClose(e)}>
       <div className={styles.cart}>
-        <h1>Shopping Bag</h1>
+        <div className={styles['cart-header']}>
+          <h1>Shopping Bag</h1>
+          <div className={styles['close-btn']}>
+            <AiOutlineClose size={24} />
+          </div>
+        </div>
         <div className={styles['cart-list']}>
           <CartItem name={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99} />
           <CartItem name={'Mens Casual Premium Slim Fit T-Shirts'} price={199.99} />
