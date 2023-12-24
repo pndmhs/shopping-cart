@@ -27,6 +27,11 @@ const CartItem = ({ name, price, imgSrc, quantity }) => {
 }
 
 const Cart = ({ handleClose, cartItems }) => {
+
+  const totalPrice = (items) => {
+    return items.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
+  }
+
   return (
     <div className={styles['cart-container']}>
       <div className={styles['cart-background']} onClick={() => handleClose()}></div>
@@ -48,7 +53,7 @@ const Cart = ({ handleClose, cartItems }) => {
               </div>
               <div className={styles.total}>
                 <p>Total:</p>
-                <p>$199.99</p>
+                <p>${totalPrice(cartItems)}</p>
               </div>
               <button className={styles['checkout-btn']}>CHECKOUT</button>
             </>
