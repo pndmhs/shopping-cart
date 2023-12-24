@@ -25,7 +25,7 @@ const ProductDetail = ({ productID }) => {
         <p className={styles['product-desc']}>{data.description}</p>
         <label htmlFor="quantity" className={styles['quantity']}>
           Quantity:
-          <input type="number" name="quantity" />
+          <input type="number" name="quantity" value={1} />
         </label>
         <button className={styles['add-btn']}>ADD TO BAG</button>
       </div>
