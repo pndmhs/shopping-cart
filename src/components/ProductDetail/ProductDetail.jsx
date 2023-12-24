@@ -2,9 +2,12 @@ import useFetch from '../../Hooks/useFetch'
 import Error from '../Error/Error'
 import Loading from '../Loading/Loading'
 import styles from './ProductDetail.module.css'
+import { useState } from 'react'
 
-const ProductDetail = ({ productID }) => {
+const ProductDetail = ({ productID, addToCart }) => {
   const { data, err, isLoading } = useFetch(`https://fakestoreapi.com/products/${productID}`)
+
+  const [quantity, setQuantity] = useState(1)
 
   if (err) {
     return <Error message={err} />
@@ -25,9 +28,9 @@ const ProductDetail = ({ productID }) => {
         <p className={styles['product-desc']}>{data.description}</p>
         <label htmlFor="quantity" className={styles['quantity']}>
           Quantity:
-          <input type="number" name="quantity" value={1} />
+          <input type="number" name="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
         </label>
-        <button className={styles['add-btn']}>ADD TO BAG</button>
+        <button className={styles['add-btn']} onClick={() => addToCart({...data, quantity})}>ADD TO BAG</button>
       </div>
     </div>
   )
