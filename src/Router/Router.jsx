@@ -16,6 +16,14 @@ const Router = () => {
   }
 
   const addToCart = (product) => {
+    const existedProduct = cartItems.find(item => item.id === product.id)
+    console.log(product.quantity)
+    if (existedProduct) {
+      console.log(existedProduct.quantity)
+      changeQuantity(product.id, product.quantity + existedProduct.quantity)
+      return
+    }
+
     setCartItems([...cartItems, product])
   }
 
