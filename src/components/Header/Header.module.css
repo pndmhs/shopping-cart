@@ -65,6 +65,12 @@
   display: none;
 }
 
+.bag-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
 @media only screen and (max-width: 768px) {
   .sm-show {
     display: block;

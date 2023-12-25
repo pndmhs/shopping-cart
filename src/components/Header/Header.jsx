@@ -34,7 +34,10 @@ const Header = ({ cartItems, changeQuantity, deleteProduct }) => {
           <li className={styles['sm-hidden']}>
             <Link to='shop'>Shop</Link>
           </li>
-          <li><MdOutlineShoppingBag size={24} onClick={() => setCartView(true)} /></li>
+          <li className={styles['bag-container']}>
+            {cartItems.length > 0 && <div>{cartItems.length}</div>}
+            <MdOutlineShoppingBag size={24} onClick={() => setCartView(true)} />
+          </li>
           <li className={`${styles['sm-show']} ${styles['lg-hidden']}`} onClick={() => setMenuToggle(true)}><HiOutlineMenu size={24} /></li>
         </ul>
       </nav>
