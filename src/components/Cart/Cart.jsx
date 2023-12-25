@@ -2,14 +2,14 @@ import styles from './Cart.module.css'
 import { FaRegTrashCan } from "react-icons/fa6"
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai"
 
-const CartItem = ({ item, changeQuantity }) => {
+const CartItem = ({ item, changeQuantity, deleteProduct }) => {
   return (
     <div className={styles['cart-item']}>
       <div className={styles['item-img']}>
         <img src={item.image} alt={item.title} />
       </div>
       <h2>{item.title}</h2>
-      <div className={styles['delete-icon']}>
+      <div className={styles['delete-icon']} onClick={() => deleteProduct(item.id)}>
         <FaRegTrashCan />
       </div>
       <p className={styles['item-price']}>${item.price}</p>
@@ -26,7 +26,7 @@ const CartItem = ({ item, changeQuantity }) => {
   )
 }
 
-const Cart = ({ handleClose, cartItems, changeQuantity }) => {
+const Cart = ({ handleClose, cartItems, changeQuantity, deleteProduct }) => {
 
   const totalPrice = (items) => {
     return items.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
@@ -48,7 +48,7 @@ const Cart = ({ handleClose, cartItems, changeQuantity }) => {
             <>
               <div className={styles['cart-list']}>
                 {
-                  cartItems.map((item) => <CartItem key={item.id} item={item} changeQuantity={changeQuantity} />)
+                  cartItems.map((item) => <CartItem key={item.id} item={item} changeQuantity={changeQuantity} deleteProduct={deleteProduct} />)
                 }
               </div>
               <div className={styles.total}>
