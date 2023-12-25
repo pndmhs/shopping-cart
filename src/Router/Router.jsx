@@ -19,10 +19,22 @@ const Router = () => {
     setCartItems([...cartItems, product])
   }
 
+  const changeQuantity = (productID, quantity) => {
+    const updatedCart = cartItems.map(item => {
+      if (item.id === productID) {
+        return { ...item, quantity}
+      }
+
+      return item
+    })
+
+    setCartItems(updatedCart)
+  }
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <App cartItems={cartItems} />,
+      element: <App cartItems={cartItems} changeQuantity={changeQuantity} />,
       children: [
         { path: '/', element: <Hero /> },
         { path: '/shop', element: <Shop setProductID={handleProduct}/>},
