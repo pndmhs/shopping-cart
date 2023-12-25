@@ -2,23 +2,23 @@ import styles from './Cart.module.css'
 import { FaRegTrashCan } from "react-icons/fa6"
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai"
 
-const CartItem = ({ name, price, imgSrc, quantity }) => {
+const CartItem = ({ item, changeQuantity }) => {
   return (
     <div className={styles['cart-item']}>
       <div className={styles['item-img']}>
-        <img src={imgSrc} alt={name} />
+        <img src={item.image} alt={item.title} />
       </div>
-      <h2>{name}</h2>
+      <h2>{item.title}</h2>
       <div className={styles['delete-icon']}>
         <FaRegTrashCan />
       </div>
-      <p className={styles['item-price']}>${price}</p>
+      <p className={styles['item-price']}>${item.price}</p>
       <div className={styles.quantity}>
-        <div className={styles['quantity-icon']}>
+        <div className={styles['quantity-icon']} onClick={() => changeQuantity(item.id, item.quantity - 1)}>
           <AiOutlineMinus size={12} />
         </div>
-        <input type="number" name="Quantity" value={quantity}/>
-        <div className={styles['quantity-icon']}>
+        <input type="number" name="Quantity" value={item.quantity} onChange={(e) => changeQuantity(item.id, e.target.value)}/>
+        <div className={styles['quantity-icon']} onClick={() => changeQuantity(item.id, item.quantity + 1)}>
           <AiOutlinePlus size={12} />
         </div>
       </div>
@@ -26,7 +26,7 @@ const CartItem = ({ name, price, imgSrc, quantity }) => {
   )
 }
 
-const Cart = ({ handleClose, cartItems }) => {
+const Cart = ({ handleClose, cartItems, changeQuantity }) => {
 
   const totalPrice = (items) => {
     return items.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
@@ -48,7 +48,7 @@ const Cart = ({ handleClose, cartItems }) => {
             <>
               <div className={styles['cart-list']}>
                 {
-                  cartItems.map((item) => <CartItem name={item.title} price={item.price} imgSrc={item.image} quantity={item.quantity} />)
+                  cartItems.map((item) => <CartItem key={item.id} item={item} changeQuantity={changeQuantity} />)
                 }
               </div>
               <div className={styles.total}>
