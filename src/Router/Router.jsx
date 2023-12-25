@@ -31,10 +31,15 @@ const Router = () => {
     setCartItems(updatedCart)
   }
 
+  const deleteProduct = (productID) => {
+    const updatedCart = cartItems.filter((item) => item.id !== productID)
+    setCartItems(updatedCart)
+  }
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <App cartItems={cartItems} changeQuantity={changeQuantity} />,
+      element: <App cartItems={cartItems} changeQuantity={changeQuantity} deleteProduct={deleteProduct} />,
       children: [
         { path: '/', element: <Hero /> },
         { path: '/shop', element: <Shop setProductID={handleProduct}/>},
