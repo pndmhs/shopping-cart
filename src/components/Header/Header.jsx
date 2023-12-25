@@ -5,7 +5,7 @@ import { HiOutlineSearch, HiOutlineMenu } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 
-const Header = ({ cartItems, changeQuantity }) => {
+const Header = ({ cartItems, changeQuantity, deleteProduct }) => {
   const [menuToggle, setMenuToggle] = useState(false)
   const [cartView, setCartView] = useState(false)
 
@@ -41,7 +41,7 @@ const Header = ({ cartItems, changeQuantity }) => {
 
       {menuToggle && <MobileNav handleClose={handleClose} />}
 
-      {cartView && <Cart handleClose={handleCloseCart} cartItems={cartItems} changeQuantity={changeQuantity} />}
+      {cartView && <Cart handleClose={handleCloseCart} cartItems={cartItems} changeQuantity={changeQuantity} deleteProduct={deleteProduct} />}
     </header>
   )
 }
