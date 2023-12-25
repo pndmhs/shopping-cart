@@ -28,7 +28,7 @@ const ProductDetail = ({ productID, addToCart }) => {
         <p className={styles['product-desc']}>{data.description}</p>
         <label htmlFor="quantity" className={styles['quantity']}>
           Quantity:
-          <input type="number" name="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+          <input type="number" name="quantity" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} />
         </label>
         <button className={styles['add-btn']} onClick={() => addToCart({...data, quantity})}>ADD TO BAG</button>
       </div>
