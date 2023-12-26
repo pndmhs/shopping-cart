@@ -1,23 +1,10 @@
 import { useState } from 'react'
 import useFetch from '../../Hooks/useFetch'
+import Product from './Product'
 import Loading from '../Loading/Loading'
 import Error from '../Error/Error'
 import { Link } from 'react-router-dom'
 import styles from './ProductList.module.css'
-
-const Product = ({ data, setProductID }) => {
-  return (
-    <Link to='product'>
-      <div className={styles.product} onClick={() => setProductID(data.id)}>
-        <div className={styles['product-img']}>
-          <img src={data.image} alt="" />
-        </div>
-        <h3>{data.title}</h3>
-        <p className={styles['product-price']}>${data.price}</p>
-      </div>
-    </Link>
-  )
-}
 
 const ProductList = ({ category, setProductID }) => {
   const { data, err, isLoading } = useFetch(category.fetchUrl)
