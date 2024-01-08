@@ -1,8 +1,12 @@
 import styles from './Cart.module.css'
 import { FaRegTrashCan } from "react-icons/fa6"
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai"
+import { useContext } from 'react'
+import { ShopContext } from '../App/App'
 
-const CartItem = ({ item, changeQuantity, deleteProduct }) => {
+const CartItem = ({ item }) => {
+  const { changeQuantity, deleteProduct } = useContext(ShopContext)
+
   return (
     <div className={styles['cart-item']}>
       <div className={styles['item-img']}>
@@ -26,7 +30,9 @@ const CartItem = ({ item, changeQuantity, deleteProduct }) => {
   )
 }
 
-const Cart = ({ handleClose, cartItems, changeQuantity, deleteProduct }) => {
+const Cart = ({ handleClose }) => {
+
+  const { cartItems } = useContext(ShopContext)
 
   const totalPrice = (items) => {
     return items.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
@@ -48,7 +54,7 @@ const Cart = ({ handleClose, cartItems, changeQuantity, deleteProduct }) => {
             <>
               <div className={styles['cart-list']}>
                 {
-                  cartItems.map((item) => <CartItem key={item.id} item={item} changeQuantity={changeQuantity} deleteProduct={deleteProduct} />)
+                  cartItems.map((item) => <CartItem key={item.id} item={item} />)
                 }
               </div>
               <div className={styles.total}>

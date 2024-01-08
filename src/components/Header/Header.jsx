@@ -3,10 +3,14 @@ import styles from './Header.module.css'
 import { MdOutlineShoppingBag } from "react-icons/md"
 import { HiOutlineSearch, HiOutlineMenu } from "react-icons/hi";
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import Cart from '../Cart/Cart';
 import SearchBar from './SearchBar';
+import { ShopContext } from '../App/App';
 
-const Header = ({ cartItems, changeQuantity, deleteProduct, handleSearch }) => {
+const Header = () => {
+  const { cartItems } = useContext(ShopContext)
+
   const [menuToggle, setMenuToggle] = useState(false)
   const [cartView, setCartView] = useState(false)
 
@@ -23,7 +27,7 @@ const Header = ({ cartItems, changeQuantity, deleteProduct, handleSearch }) => {
   return (
     <header className={styles.header}>
       <h1 className={styles.logo}>SIMPLE <span className={styles[`text-stroke`]}>SHOP</span></h1>
-      <SearchBar screen='desktop' handleSearch={handleSearch} />
+      <SearchBar screen='desktop' />
       <nav className={styles.nav}>
         <ul>
           <li className={styles['sm-hidden']}>
@@ -40,20 +44,20 @@ const Header = ({ cartItems, changeQuantity, deleteProduct, handleSearch }) => {
         </ul>
       </nav>
 
-      {menuToggle && <MobileNav handleClose={handleClose} handleSearch={handleSearch} setMenuToggle={setMenuToggle} />}
+      {menuToggle && <MobileNav handleClose={handleClose} setMenuToggle={setMenuToggle} />}
 
-      {cartView && <Cart handleClose={handleCloseCart} cartItems={cartItems} changeQuantity={changeQuantity} deleteProduct={deleteProduct} />}
+      {cartView && <Cart handleClose={handleCloseCart} />}
     </header>
   )
 }
 
-const MobileNav = ({ handleClose, handleSearch, setMenuToggle }) => {
+const MobileNav = ({ handleClose, setMenuToggle }) => {
   return (
     <div
     className={`${styles['mobile-nav-container']} ${styles['lg-hidden']}`}
     onClick={(e) => handleClose(e)}>
       <div className={styles['mobile-nav']}>
-        <SearchBar screen='mobile' handleSearch={handleSearch} closeNav={() => setMenuToggle(false)} />
+        <SearchBar screen='mobile' closeNav={() => setMenuToggle(false)} />
         <ul>
           <li><Link to='/' onClick={(e) => handleClose(e)}>Home</Link></li>
           <li><Link to='shop' onClick={(e) => handleClose(e)}>Shop</Link></li>

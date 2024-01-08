@@ -3,8 +3,12 @@ import Error from '../Error/Error'
 import Loading from '../Loading/Loading'
 import styles from './ProductDetail.module.css'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { ShopContext } from '../App/App'
 
-const ProductDetail = ({ productID, addToCart }) => {
+const ProductDetail = () => {
+  const { productID, addToCart } = useContext(ShopContext)
+
   const { data, err, isLoading } = useFetch(`https://fakestoreapi.com/products/${productID}`)
 
   const [quantity, setQuantity] = useState(1)

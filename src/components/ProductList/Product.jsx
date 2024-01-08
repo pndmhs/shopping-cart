@@ -1,17 +1,26 @@
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { ShopContext } from '../App/App'
+import { useNavigate } from 'react-router-dom'
 import styles from './ProductList.module.css'
 
-const Product = ({ data, setProductID }) => {
+const Product = ({ data }) => {
+  const { handleProduct } = useContext(ShopContext)
+  const navigate = useNavigate()
+
   return (
-    <Link to='product'>
-      <div className={styles.product} onClick={() => setProductID(data.id)}>
-        <div className={styles['product-img']}>
-          <img src={data.image} alt="" />
-        </div>
-        <h3>{data.title}</h3>
-        <p className={styles['product-price']}>${data.price}</p>
+    <div
+    className={styles.product}
+    onClick={() => {
+      handleProduct(data.id)
+      navigate('/shop/product')
+    }}>
+      <div className={styles['product-img']}>
+        <img src={data.image} alt="" />
       </div>
-    </Link>
+      <h3>{data.title}</h3>
+      <p className={styles['product-price']}>${data.price}</p>
+    </div>
   )
 }
 

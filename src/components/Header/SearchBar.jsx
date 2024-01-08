@@ -1,8 +1,12 @@
 import { HiOutlineSearch } from "react-icons/hi"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { ShopContext } from "../App/App"
 import styles from './Header.module.css'
 
-const SearchBar = ({ screen, handleSearch, closeNav }) => {
+const SearchBar = ({ screen, closeNav = () => {} }) => {
+  const { handleSearch } = useContext(ShopContext)
+  
   const navigate = useNavigate()
 
   const searchProduct = (e) => {

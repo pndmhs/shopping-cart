@@ -3,8 +3,12 @@ import Product from '../ProductList/Product'
 import Loading from '../Loading/Loading'
 import Error from '../Error/Error'
 import styles from './SearchResult.module.css'
+import { useContext } from 'react'
+import { ShopContext } from '../App/App'
 
-const SearchResult = ({ searchQuery, setProductID }) => {
+const SearchResult = () => {
+  const { searchQuery } = useContext(ShopContext)
+
   const { data, err, isLoading } = useFetch('https://fakestoreapi.com/products')
 
   const filterData = (data) => {
@@ -24,7 +28,7 @@ const SearchResult = ({ searchQuery, setProductID }) => {
       <h1>Search result for "{searchQuery}"</h1>
       {filterData(data).length === 0 && <p>No items found, please try again</p>}
       <div className={styles['search-result']}>
-        {filterData(data).length > 0 && filterData(data).map(product => <Product key={product.id} data={product} setProductID={setProductID} />)}
+        {filterData(data).length > 0 && filterData(data).map(product => <Product key={product.id} data={product} />)}
       </div>
     </div>
   )
