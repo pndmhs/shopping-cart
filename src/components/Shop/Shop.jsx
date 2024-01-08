@@ -2,7 +2,7 @@ import { useState } from 'react'
 import ProductList from '../ProductList/ProductList'
 import styles from './Shop.module.css'
 
-const Shop = ({ setProductID }) => {
+const Shop = () => {
   const [activeCategory, setActiveCategory] = useState(0)
 
   const categories = [
@@ -49,7 +49,7 @@ const Shop = ({ setProductID }) => {
           ))}
         </ul>
       </div>
-      <ProductList category={categories[activeCategory]} setProductID={setProductID} />
+      <ProductList category={categories[activeCategory]} />
     </div>
   )
 }
