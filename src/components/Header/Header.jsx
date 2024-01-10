@@ -56,7 +56,7 @@ const MobileNav = ({ menuToggle, handleClose, setMenuToggle }) => {
     <div
     className={`${styles['mobile-nav-container']} ${styles['lg-hidden']} ${menuToggle ? styles.show : ''}`}
     onClick={(e) => handleClose(e)}>
-      <div className={styles['mobile-nav']}>
+      <div className={`${styles['mobile-nav']} ${menuToggle ? styles.show : ''}`}>
         <SearchBar screen='mobile' closeNav={() => setMenuToggle(false)} />
         <ul>
           <li><Link to='/' onClick={(e) => handleClose(e)}>Home</Link></li>
