@@ -46,7 +46,7 @@ const Header = () => {
 
       {menuToggle && <MobileNav handleClose={handleClose} setMenuToggle={setMenuToggle} />}
 
-      {cartView && <Cart handleClose={handleCloseCart} />}
+      <Cart cartView={cartView} handleClose={handleCloseCart} />
     </header>
   )
 }
