@@ -98,6 +98,11 @@
     width: 100%;
     height: 100svh;
     background-color: rgba(0, 0, 0, .75);
+    visibility: hidden;
+  }
+
+  .mobile-nav-container.show {
+    visibility: visible;
   }
 
   .mobile-nav {
