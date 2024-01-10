@@ -30,7 +30,7 @@ const CartItem = ({ item }) => {
   )
 }
 
-const Cart = ({ handleClose }) => {
+const Cart = ({ cartView, handleClose }) => {
 
   const { cartItems } = useContext(ShopContext)
 
@@ -39,9 +39,9 @@ const Cart = ({ handleClose }) => {
   }
 
   return (
-    <div className={styles['cart-container']}>
+    <div className={`${styles['cart-container']} ${cartView ? styles.show : ''}`}>
       <div className={styles['cart-background']} onClick={() => handleClose()}></div>
-      <div className={styles.cart}>
+      <div className={`${styles.cart} ${cartView ? styles.show : ''}`}>
         <div className={styles['cart-header']}>
           <h1>Shopping Bag</h1>
           <div className={styles['close-btn']} onClick={() => handleClose()}>
