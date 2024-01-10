@@ -26,7 +26,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <h1 className={styles.logo}>SIMPLE <span className={styles[`text-stroke`]}>SHOP</span></h1>
+      <Link to='/'>
+        <h1 className={styles.logo}>SIMPLE <span className={styles[`text-stroke`]}>SHOP</span></h1>
+      </Link>
       <SearchBar screen='desktop' />
       <nav className={styles.nav}>
         <ul>
