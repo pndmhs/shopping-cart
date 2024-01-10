@@ -44,17 +44,17 @@ const Header = () => {
         </ul>
       </nav>
 
-      {menuToggle && <MobileNav handleClose={handleClose} setMenuToggle={setMenuToggle} />}
+      <MobileNav menuToggle={menuToggle} handleClose={handleClose} setMenuToggle={setMenuToggle} />
 
       <Cart cartView={cartView} handleClose={handleCloseCart} />
     </header>
   )
 }
 
-const MobileNav = ({ handleClose, setMenuToggle }) => {
+const MobileNav = ({ menuToggle, handleClose, setMenuToggle }) => {
   return (
     <div
-    className={`${styles['mobile-nav-container']} ${styles['lg-hidden']}`}
+    className={`${styles['mobile-nav-container']} ${styles['lg-hidden']} ${menuToggle ? styles.show : ''}`}
     onClick={(e) => handleClose(e)}>
       <div className={styles['mobile-nav']}>
         <SearchBar screen='mobile' closeNav={() => setMenuToggle(false)} />
