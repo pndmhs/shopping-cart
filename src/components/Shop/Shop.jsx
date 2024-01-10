@@ -36,18 +36,20 @@ const Shop = () => {
     <div className={styles.shop}>
       <h1>{categories[activeCategory].name}</h1>
       <div className={styles['category-container']}>
-        <h2>Categories</h2>
-        <ul>
-          {categories.map((category, index) => (
-            <li
-            key={index}
-            onClick={() => handleCategory(index)}
-            className={activeCategory === index ? styles.active : ''}
-            >
-              {category.name}
-            </li>
-          ))}
-        </ul>
+        <div className={styles['category-content']}>
+          <h2>Categories</h2>
+          <ul>
+            {categories.map((category, index) => (
+              <li
+              key={index}
+              onClick={() => handleCategory(index)}
+              className={activeCategory === index ? styles.active : ''}
+              >
+                {category.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <ProductList category={categories[activeCategory]} />
     </div>
