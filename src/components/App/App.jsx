@@ -7,8 +7,6 @@ import { useState } from 'react'
 export const ShopContext = createContext({
   cartItems: [],
   searchQuery: null,
-  productID: null,
-  handleProduct: () => {},
   addToCart: () => {},
   changeQuantity: () => {},
   deleteProduct: () => {},
@@ -16,15 +14,9 @@ export const ShopContext = createContext({
 })
 
 const App = () => {
-  const [productID, setProductID] = useState(null)
-
   const [cartItems, setCartItems] = useState([])
 
   const [searchQuery, setSearchQuery] = useState(null)
-
-  const handleProduct = (id) => {
-    setProductID(id)
-  }
 
   const addToCart = (product) => {
     const existedProduct = cartItems.find(item => item.id === product.id)
@@ -59,7 +51,7 @@ const App = () => {
 
   return (
     <div className={styles.container}>
-      <ShopContext.Provider value={{ productID, cartItems, searchQuery, handleProduct, addToCart, changeQuantity, handleSearch, deleteProduct }}>
+      <ShopContext.Provider value={{ cartItems, searchQuery, addToCart, changeQuantity, handleSearch, deleteProduct }}>
         <Header />
         <Outlet />
       </ShopContext.Provider>
