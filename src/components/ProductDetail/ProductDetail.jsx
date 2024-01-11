@@ -2,12 +2,14 @@ import useFetch from '../../Hooks/useFetch'
 import Error from '../Error/Error'
 import Loading from '../Loading/Loading'
 import styles from './ProductDetail.module.css'
-import { useState } from 'react'
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import { ShopContext } from '../App/App'
 
 const ProductDetail = () => {
-  const { productID, addToCart } = useContext(ShopContext)
+  const { addToCart } = useContext(ShopContext)
+
+  const { productID } = useParams()
 
   const { data, err, isLoading } = useFetch(`https://fakestoreapi.com/products/${productID}`)
 
